@@ -1,7 +1,7 @@
 import { ActionReducerMap, ActionReducer, MetaReducer } from '@ngrx/store';
 import { AppState } from './app.states';
 import * as bookReducer from './book.reducer';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 export const reducers: ActionReducerMap<AppState> = {
     bookState: bookReducer.reducer
