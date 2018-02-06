@@ -1,0 +1,9 @@
+<button (click)="search('historia')" >search</button>
+
+<!-- <input [ngModel]="searchTerm | async" (ngModelChange) = "search($event)"> -->
+
+<ul>
+    <li *ngFor="let book of (books | async)">
+        <span> {{ book.title }} </span>
+    </li>
+</ul>
