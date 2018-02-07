@@ -8,7 +8,7 @@ import * as fromActions from '../actions/books.action';
 
 @Component({
     selector: 'books',
-    templateUrl: './books.component.html'
+	templateUrl: './books.html'
 })
 
 export class BooksComponent {
@@ -22,7 +22,6 @@ export class BooksComponent {
 	}
 
 	search(searchTerm: string){
-		// console.log(searchTerm);
 		this.store.dispatch(new fromActions.SearchAction(searchTerm));
 	}
 

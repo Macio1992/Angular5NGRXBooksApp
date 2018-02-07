@@ -1,0 +1,4 @@
+<div class="books">
+    <book-search [searchQuery]="searchTerm | async" (search) = "search($event)"></book-search>
+    <books-list [books] = "books | async"></books-list>
+</div>

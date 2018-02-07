@@ -1,0 +1,16 @@
+<li class="book">
+    <img src="{{ book.cover }}" alt="">
+    <div class="title">
+        <h2>{{ book.title }}</h2>
+        <h3>{{ book.author }}</h3>
+    </div>
+    <div class="info">
+        <p>nr w wykazie MEN: <span>{{ book.men }}</span></p>
+        <p>ISBN: <span>{{ book.isbn }}</span></p>
+        <p>Liczba stron: <span>{{ book.pages_count }}</span></p>
+        <p>Przedmiot: <span>{{ book.subject }}</span></p>
+        <p>Poziom: <span *ngFor="let level of book.levels">{{ level.school }} </span></p>
+        <p>Typ: <span>{{ book.type }}</span></p>
+        <a target="blank" href="{{ book.url }}">Przejdź do księgarni</a>
+    </div>
+</li>

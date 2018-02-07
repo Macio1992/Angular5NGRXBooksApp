@@ -1,0 +1,41 @@
+@import "colors_fonts.scss";
+
+div.layout {
+    display: flex;
+    menu{
+        padding: 0;
+        margin: 0;
+        width: $menuWidth;
+        div.menu {
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                li{
+                    background-color: $color;
+                    a{
+                        text-decoration: none;
+                        font-family: $font;
+                        color: white;
+                        display: block;
+                        padding: 20px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        
+    }
+    books{
+        width: $booksWidth;
+        book-search{
+            input {
+                outline: 0;
+                display: block;
+                margin: auto;
+                margin-top: 20px;
+                padding: 15px 30px;
+            }
+        }
+    }
+}

@@ -11,7 +11,7 @@ export class BooksService {
     constructor(private http: HttpClient){}
 
     search(searchTerm: string): Observable<Book[]>{
-        return this.http.get<Book[]>(`${this.URL}?query=${searchTerm}`);
+        return this.http.get<Book[]>(`${this.URL}?query=${encodeURIComponent(searchTerm)}`);
     }
 
 }
