@@ -1,16 +1,16 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { BooksComponent } from "./components/books";
+import { BooksComponent } from "./components/books/books";
 import { BooksService } from "./services/books.service";
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './effects/books.effects';
-import { BookSearch } from "./components/book-search";
+import { BookSearchComponent } from "./components/book-search/book-search";
 import { FormsModule } from "@angular/forms";
-import { BookComponent } from "./components/book";
-import { BooksListComponent } from "./components/books-list";
+import { BookComponent } from "./components/book/book";
+import { BooksListComponent } from "./components/books-list/books-list";
 
 @NgModule({
     imports: [
@@ -24,7 +24,7 @@ import { BooksListComponent } from "./components/books-list";
     ],
     declarations: [
         BooksComponent,
-        BookSearch,
+        BookSearchComponent,
         BookComponent,
         BooksListComponent
     ],

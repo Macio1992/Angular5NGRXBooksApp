@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
     templateUrl: './book-search.html'
 })
 
-export class BookSearch {
+export class BookSearchComponent {
 
     @Input() searchQuery;
     @Output() search = new EventEmitter<string>();
