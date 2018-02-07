@@ -22,7 +22,8 @@ export class BooksComponent {
 	}
 
 	search(searchTerm: string){
-		this.store.dispatch(new fromActions.SearchAction('historia'));
+		// console.log(searchTerm);
+		this.store.dispatch(new fromActions.SearchAction(searchTerm));
 	}
 
 }

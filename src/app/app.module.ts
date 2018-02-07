@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { routes } from './routes';
+import { ComponentsModule } from './theme/components/index';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { routes } from './routes';
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes, {useHash: true})
