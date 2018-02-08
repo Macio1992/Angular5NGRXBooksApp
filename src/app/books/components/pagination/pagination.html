@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let page of pages" (click)="setPage.emit(page+1)">
+        {{ page+1 }}
+    </li>
+</ul>

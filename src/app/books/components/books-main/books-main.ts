@@ -7,8 +7,8 @@ import * as fromBookReducer from '../../reducers/book.reducer';
 import * as fromActions from '../../actions/books.action';
 
 @Component({
-    selector: 'books',
-	templateUrl: './books.html'
+    selector: 'books-main',
+	templateUrl: './books-main.html'
 })
 
 export class BooksComponent {
@@ -22,7 +22,13 @@ export class BooksComponent {
 	}
 
 	search(searchTerm: string){
-		this.store.dispatch(new fromActions.SearchAction(searchTerm));
+		// this.store.dispatch(new fromActions.SearchAction(searchTerm));
+		this.store.dispatch(new fromActions.PaginateAction({start: 0, end: 6}))
+	}
+
+	setPage(page: number){
+		console.log(page);
+
 	}
 
 }

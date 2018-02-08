@@ -1,9 +1,12 @@
 import { Action } from "@ngrx/store";
 import { Book } from "../models/book";
+import { Pagination } from "../models/pagination";
 
 export const SEARCH = '[Books] Search';
 export const SEARCH_DONE = '[Books] Search Done';
 export const SEARCH_ERROR = '[Books] Search Error';
+export const PAGINATE = '[Books] Paginate';
+export const PAGINATE_DONE = '[Books] Paginate Done';
 
 export class SearchAction implements Action{
     readonly type = SEARCH;
@@ -23,4 +26,14 @@ export class SearchErrorAction implements Action {
     constructor(public payload: string){}
 }
 
-export type All = SearchAction | SearchDoneAction | SearchErrorAction;
+export class PaginateAction implements Action {
+    readonly type = PAGINATE;
+    constructor(public payload: Pagination){}
+}
+
+export class PaginateActionDone implements Action {
+    readonly type = PAGINATE_DONE;
+    constructor(public payload: Book[]){}
+}
+
+export type All = SearchAction | SearchDoneAction | SearchErrorAction | PaginateAction | PaginateActionDone;

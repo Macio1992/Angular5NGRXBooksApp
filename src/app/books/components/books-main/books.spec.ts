@@ -8,7 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import * as book from '../../actions/books.action';
 import * as fromBooks from '../../reducers/reducers';
 import * as fromAppState from '../../reducers/app.states';
-import { BooksComponent } from "../books/books";
+import { BooksComponent } from "../books-main/books-main";
 
 describe('Search Books', ()=>{
 

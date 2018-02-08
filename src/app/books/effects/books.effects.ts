@@ -38,7 +38,7 @@ export class BooksEffects {
             catchError(err => of(new fromAction.SearchErrorAction(err)))
         );
 
-    })
+    });
 
     constructor(private booksService: BooksService, private actions$: Actions){}
 
