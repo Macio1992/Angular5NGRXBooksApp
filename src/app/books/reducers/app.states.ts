@@ -9,5 +9,6 @@ export interface BookState {
     books: Book[];
     searchTerm: string;
     error: string;
-    pagination: Pagination;
+    start: number;
+    end: number;
 }

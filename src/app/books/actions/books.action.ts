@@ -31,9 +31,9 @@ export class PaginateAction implements Action {
     constructor(public payload: Pagination){}
 }
 
-export class PaginateActionDone implements Action {
+export class PaginationDoneAction implements Action {
     readonly type = PAGINATE_DONE;
     constructor(public payload: Book[]){}
 }
 
-export type All = SearchAction | SearchDoneAction | SearchErrorAction | PaginateAction | PaginateActionDone;
+export type All = SearchAction | SearchDoneAction | SearchErrorAction | PaginateAction | PaginationDoneAction;

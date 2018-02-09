@@ -1,5 +1,11 @@
 <div class="books">
     <book-search [searchQuery]="searchTerm | async" (search) = "search($event)"></book-search>
-    <books-list [books] = "books | async"></books-list>
-    <pagination *ngIf="(books | async).length" [pageNumber]="(books | async).length/2+1" (setPage)="setPage($event)"></pagination>
+    <!-- <books-list [books] = "books | async"></books-list> -->
+    <books-list [books] = "paginatedBooks | async"></books-list>
+    <pagination 
+        *ngIf="(books | async).length"
+        [pageNumber]="(books | async).length"
+        (setPage)="setPage($event)"
+        [totalPages]="totalPages"
+    ></pagination>
 </div>

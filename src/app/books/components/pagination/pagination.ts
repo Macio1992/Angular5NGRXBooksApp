@@ -10,9 +10,10 @@ export class PaginationComponent implements OnInit {
     @Input() pageNumber: number;
     @Output() setPage = new EventEmitter<number>();
     pages: number[] = [];
+    @Input() totalPages: number;
 
     ngOnInit(){
-        this.pages = Array.apply(null, {length: this.pageNumber}).map(Number.call, Number);
+        this.pages = Array.apply(null, {length: Math.ceil(this.pageNumber/this.totalPages)}).map(Number.call, Number);
     }
     
 }

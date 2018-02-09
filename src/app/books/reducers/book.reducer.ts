@@ -4,7 +4,7 @@ import { BookState } from './app.states';
 import { Pagination } from '../models/pagination';
 import { Book } from '../models/book';
 
-export const initialState: BookState = { books: [], searchTerm: '', error: '', pagination: null };
+export const initialState: BookState = { books: [], searchTerm: '', error: '', start: 0, end: 0 };
 
 export function reducer(state = initialState, action: fromActions.All): BookState {
 
@@ -18,7 +18,8 @@ export function reducer(state = initialState, action: fromActions.All): BookStat
                     books: [],
                     searchTerm: '',
                     error: '',
-                    pagination: null
+                    start: 0,
+                    end: 0
                 }
             }
 
@@ -26,15 +27,17 @@ export function reducer(state = initialState, action: fromActions.All): BookStat
                 books: [],
                 searchTerm: action.paylod,
                 error: '',
-                pagination: null
+                start: 0,
+                end: 0
             }
         }
         case fromActions.SEARCH_DONE: {
             return {
                 books: action.payload,
-                searchTerm: '',
+                searchTerm: state.searchTerm,
                 error: '',
-                pagination: null
+                start: 0,
+                end: 0
             }
         }
 
@@ -43,29 +46,30 @@ export function reducer(state = initialState, action: fromActions.All): BookStat
                 books: [],
                 searchTerm: '',
                 error: action.payload,
-                pagination: null
+                start: 0,
+                end: 0
             }
         }
 
         case fromActions.PAGINATE: {
-
-            const start: number = action.payload.start;
-            const end: number = action.payload.end;
-
+            const start = action.payload.start;
+            const end = action.payload.end;
             return {
-                books: [],
+                books: state.books,
                 searchTerm: '',
                 error: '',
-                pagination: {start: start, end: end}
+                start: start,
+                end: end
             }
         }
-
+        
         case fromActions.PAGINATE_DONE: {
             return {
                 books: action.payload,
                 searchTerm: '',
                 error: '',
-                pagination: null
+                start: 0,
+                end: 0
             }
         }
 
@@ -80,3 +84,6 @@ export const getBookState = createFeatureSelector<BookState>('bookState');
 
 export const getBooks = createSelector(getBookState, (state: BookState) => state.books);
 export const getSearchTerm = createSelector(getBookState, (state: BookState) => state.searchTerm);
+export const getPaginatedBooks = createSelector(
+    getBookState,
+    (state: BookState) => state.books.slice(state.start, state.end))

@@ -10,10 +10,12 @@ import { empty } from 'rxjs/observable/empty';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/of';
 import { skip, takeUntil, catchError, map } from 'rxjs/operators';
 
 import { Book } from '../models/book';
-import { SearchDoneAction } from '../actions/books.action';
+import { SearchDoneAction, SEARCH_DONE, PaginateAction } from '../actions/books.action';
+import { global } from '../../global/global';
 
 @Injectable()
 export class BooksEffects {
@@ -39,6 +41,16 @@ export class BooksEffects {
         );
 
     });
+
+    @Effect()
+    paginate$ = this.actions$
+    .ofType<fromAction.SearchDoneAction>(SEARCH_DONE)
+    .switchMap(() => {
+        return Observable.of({
+            type: fromAction.PAGINATE,
+            payload: {start: 0, end: global.totalPageSize}
+        })
+    })
 
     constructor(private booksService: BooksService, private actions$: Actions){}
 
