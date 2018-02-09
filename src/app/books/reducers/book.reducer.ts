@@ -62,16 +62,6 @@ export function reducer(state = initialState, action: fromActions.All): BookStat
                 end: end
             }
         }
-        
-        case fromActions.PAGINATE_DONE: {
-            return {
-                books: action.payload,
-                searchTerm: '',
-                error: '',
-                start: 0,
-                end: 0
-            }
-        }
 
         default: {
             return state;

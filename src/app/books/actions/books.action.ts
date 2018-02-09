@@ -6,7 +6,6 @@ export const SEARCH = '[Books] Search';
 export const SEARCH_DONE = '[Books] Search Done';
 export const SEARCH_ERROR = '[Books] Search Error';
 export const PAGINATE = '[Books] Paginate';
-export const PAGINATE_DONE = '[Books] Paginate Done';
 
 export class SearchAction implements Action{
     readonly type = SEARCH;
@@ -31,9 +30,4 @@ export class PaginateAction implements Action {
     constructor(public payload: Pagination){}
 }
 
-export class PaginationDoneAction implements Action {
-    readonly type = PAGINATE_DONE;
-    constructor(public payload: Book[]){}
-}
-
-export type All = SearchAction | SearchDoneAction | SearchErrorAction | PaginateAction | PaginationDoneAction;
+export type All = SearchAction | SearchDoneAction | SearchErrorAction | PaginateAction;
