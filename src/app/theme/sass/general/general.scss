@@ -6,6 +6,7 @@ div.layout {
         padding: 0;
         margin: 0;
         width: $menuWidth;
+
         div.menu {
             ul {
                 padding: 0;
@@ -13,6 +14,9 @@ div.layout {
                 list-style: none;
                 li{
                     background-color: $color;
+                    @media(max-width: 576px){
+                        background: orange;
+                    }
                     a{
                         text-decoration: none;
                         font-family: $font;

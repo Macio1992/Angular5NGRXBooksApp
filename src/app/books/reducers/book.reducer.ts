@@ -56,7 +56,7 @@ export function reducer(state = initialState, action: fromActions.All): BookStat
             const end = action.payload.end;
             return {
                 books: state.books,
-                searchTerm: '',
+                searchTerm: state.searchTerm,
                 error: '',
                 start: start,
                 end: end
